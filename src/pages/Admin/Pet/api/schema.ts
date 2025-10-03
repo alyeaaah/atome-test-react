@@ -12,7 +12,7 @@ const categoryTagSchema = z.object({
 const petStatus = z.enum([PetStatusEnum.available, PetStatusEnum.pending, PetStatusEnum.sold]);
 export const petSchema = z.object({
   id: z.number(),
-  name: z.string(),
+  name: z.string().nullish(),
   category: categoryTagSchema.nullish(),
   photoUrls: z.array(z.string()),
   tags: z.array(categoryTagSchema).nullish(),
